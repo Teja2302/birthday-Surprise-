@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    text-align: center;
+    font-family: Arial;
+    background: linear-gradient(120deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+}
+
+/* Title */
+h1 {
+    margin-top: 60px;
+    color: white;
+    font-size: 40px;
+}
+
+/* Name animation */
+.name {
+    font-size: 50px;
+    color: yellow;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 30px red; }
+}
+
+/* Gift box */
+.gift {
+    margin-top: 50px;
+    font-size: 80px;
+    cursor: pointer;
+}
+
+/* Hidden content */
+#surprise {
+    display: none;
+}
+
+/* Slideshow */
+.slideshow img {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+/* Love text */
+#loveText {
+    color: white;
+    font-size: 22px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday 🎉</h1>
+<div class="name">HER_NAME ❤️</div>
+
+<div class="gift" onclick="openGift()">🎁</div>
+
+<div id="surprise">
+
+    <!-- Photos -->
+    <div class="slideshow">
+        <img src="https://source.unsplash.com/250x250/?couple,love">
+        <img src="https://source.unsplash.com/250x250/?romantic">
+        <img src="https://source.unsplash.com/250x250/?heart">
+    </div>
+
+    <!-- Love Message -->
+    <div id="loveText"></div>
+
+</div>
+
+<!-- Music -->
+<audio id="music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+</audio>
+
+<script>
+function openGift() {
+    document.getElementById("surprise").style.display = "block";
+    document.getElementById("music").play();
+
+    // Typing message
+    let text = "You are my world, my happiness, my forever ❤️ I love you so much!";
+    let i = 0;
+
+    function typing() {
+        if (i < text.length) {
+            document.getElementById("loveText").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, 50);
+        }
+    }
+    typing();
+}
+
+/* Floating Emojis */
+function createEmoji() {
+    const emojis = ["❤️","💖","💕","💘","😍","😘","🎂","🌹"];
+    const el = document.createElement("div");
+
+    el.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.position = "absolute";
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.top = "100vh";
+    el.style.fontSize = (Math.random() * 20 + 20) + "px";
+
+    el.style.animation = "floatUp 5s linear";
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 5000);
+}
+
+setInterval(createEmoji, 300);
+
+// Animation
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
+}`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
