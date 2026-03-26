@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+    background: linear-gradient(120deg, #f3009a, #fad0c4);
+    overflow-x: hidden;
+}
+
+/* Title */
+h1 {
+    margin-top: 50px;
+    font-size: 40px;
+    color: white;
+}
+
+/* Images */
+.gallery img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Button */
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: none;
+    background: #c13030;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hidden message */
+#message {
+    display: none;
+    font-size: 22px;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Love Meter */
+.meter {
+    width: 80%;
+    height: 25px;
+    background: #fff;
+    border-radius: 20px;
+    margin: 30px auto;
+}
+
+.fill {
+    height: 100%;
+    width: 0%;
+    background: #dc0000;
+    border-radius: 20px;
+    transition: width 3s;
+}
+
+/* Typing effect */
+#typing {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>😘 Happy Birthday Na Potti Bangaram ❤️ 🫂</h1>
+
+<!-- Love Images -->
+
+
+<!-- Button -->
+<button onclick="startSurprise()">Click for Surprise 🎁</button>
+
+<!-- Hidden Message -->
+<div id="message">
+    💕 You are my happiness, my world, my everything 💕
+</div>
+
+<!-- Love Meter -->
+<div class="meter">
+    <div class="fill" id="fill"></div>
+</div>
+
+<p style="color:white;">My Love for You 💖</p>
+<!-- Typing Message -->
+<div id="typing"></div>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startSurprise() {
+    document.getElementById("message").style.display = "block";
+    
+    // Fill love meter
+    document.getElementById("fill").style.width = "100%";
+
+    // Typing effect
+    let text = "Nen ninu chala sarlu badha peta kani antha kanna ekkuva ninu love chesa /Ninu thapa nen evarni love cheyaledd you are the love of my life/Love you for ever and ever ra bujji konda/I will love you today, tomorrow, and forever ❤️";
+    let i = 0;
+    let speed = 80;
+
+
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    typeWriter();
+}
+
+// Floating hearts
+function createEmoji() {
+    const emojis = ["❤️", "💖", "💕", "💘", "😍", "😘", "🌸", "💞"];
+
+    const emoji = document.createElement("div");
+    emoji.classList.add("heart");
+
+    // Random emoji
+    emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+    // Random position
+    emoji.style.left = Math.random() * 100 + "vw";
+
+    // Random speed
+    emoji.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    // Random size
+    emoji.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    document.body.appendChild(emoji);
+
+    setTimeout(() => {
+        emoji.remove();
+    }, 5000);
+}
+
+// Run animation
+setInterval(createEmoji, 250);
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
